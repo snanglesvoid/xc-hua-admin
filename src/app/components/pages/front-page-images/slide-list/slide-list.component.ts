@@ -117,6 +117,7 @@ export class SlideListComponent implements OnInit {
 
   delete(item, list: Array<any>) {
     console.log('delete')
+    if (!confirm('are you sure you want to delete: ' + item.slug)) return
     this.loading = true
     this.api
       .deleteFrontPageImage(item)
