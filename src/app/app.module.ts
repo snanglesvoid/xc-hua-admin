@@ -16,17 +16,17 @@ import { ContentPaneComponent } from './components/content-pane/content-pane.com
 import { SlidePreviewComponent } from './components/pages/front-page-images/slide-preview/slide-preview.component'
 import { SmartImageComponent } from './components/common/smart-image/smart-image.component'
 import { DeviceDetectorModule } from 'ngx-device-detector'
-import { SlideDetailComponent } from './components/pages/front-page-images/slide-detail/slide-detail.component';
-import { LanguageSelectComponent } from './components/common/language-select/language-select.component';
-import { ImageUploadComponent } from './components/common/image-upload/image-upload.component';
-import { FileSizePipe } from './pipes/file-size.pipe';
+import { SlideDetailComponent } from './components/pages/front-page-images/slide-detail/slide-detail.component'
+import { LanguageSelectComponent } from './components/common/language-select/language-select.component'
+import { ImageUploadComponent } from './components/common/image-upload/image-upload.component'
+import { FileSizePipe } from './pipes/file-size.pipe'
 import { ProgressBarComponent } from './components/common/progress-bar/progress-bar.component'
 
 const appRoutes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: HomeComponent,
+    redirectTo: '/front-page-images',
   },
   {
     path: 'front-page-images',
