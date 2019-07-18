@@ -1,0 +1,26 @@
+@import '../../../../styles/variables.less';
+
+:host {
+  display: flex;
+  justify-content: space-around;
+}
+
+.progress {
+  width: 160px;
+  height: 4px;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  position: relative;
+  overflow: hidden;
+
+  .progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 8px;
+
+    transition: width 0.5s ease;
+
+    background: #ccc;
+  }
+}

@@ -1,0 +1,124 @@
+:host.dragover {
+  background: #c9dbe2;
+}
+:host {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  height: 200px;
+  background: #4f6571;
+  transition: background 0.25s ease;
+  border-radius: 4px;
+  button {
+    margin: 4px;
+    margin-top: 12px;
+    width: 62%;
+    color: #ccc;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    text-transform: uppercase;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s ease;
+    margin-left: 0;
+    margin-right: 0;
+    background: #147cd3;
+    border: 1px solid #0d538d;
+  }
+  button:hover {
+    background: #0d538d;
+  }
+  button.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    filter: grayscale(80%);
+  }
+  .box {
+    text-align: center;
+    // position: relative;
+    height: calc(100% - 32px);
+    padding-top: 84px;
+
+    outline: 2px dashed #92b0b3;
+    // outline-offset: -8px;
+
+    img {
+      position: absolute;
+      object-fit: contain;
+      width: calc(100% - 16px);
+      max-height: calc(100% - 48px);
+      top: 8px;
+      left: 8px;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    input[type='file'] {
+      z-index: -1;
+      width: 0.1px;
+      height: 0.1px;
+      overflow: hidden;
+      position: absolute;
+    }
+    .box-icon {
+      width: 100%;
+      height: 40px;
+      fill: #92b0b3;
+      display: block;
+      margin-bottom: 20px;
+    }
+    label {
+      font-size: 14px;
+      cursor: pointer;
+      color: #ccc;
+    }
+
+    .center {
+      transform: translateY(-50%);
+    }
+  }
+
+  .info {
+    position: absolute;
+    bottom: 4px;
+    right: 8px;
+    text-align: right;
+    p {
+      // font-weight: bold;
+      margin: 0;
+      line-height: 16px;
+      font-size: 12px;
+      color: #ccc;
+    }
+    p.danger {
+      color: #c62828;
+    }
+    p.warning {
+      color: #ba9b3b;
+    }
+    p.ok {
+      color: #ccc;
+    }
+  }
+
+  .loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+    margin: -8px;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    align-items: center;
+    padding-top: 25%;
+    h3 {
+      color: #ccc !important;
+    }
+  }
+}

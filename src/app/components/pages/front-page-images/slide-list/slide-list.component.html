@@ -1,0 +1,91 @@
+<div class="boundary">
+  <div class="loading" *ngIf="loading">
+    <h3>Loading...</h3>
+  </div>
+  <div class="slide-list-container">
+    <p>active:</p>
+    <div
+      cdkDropList
+      #activeList="cdkDropList"
+      [cdkDropListData]="activeItems"
+      [cdkDropListConnectedTo]="[inactiveList, slideDelete]"
+      class="slide-list"
+      (cdkDropListDropped)="dropped($event)"
+    >
+      <div
+        class="slide-list-item active"
+        *ngFor="let item of activeItems"
+        [class.selected]="selectedItem === item"
+        (click)="itemClicked(item)"
+        cdkDrag
+        cdkDragBoundary=".boundary"
+      >
+        <div class="drag-handle" cdkDragHandle>
+          <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"
+            ></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+        </div>
+
+        <div class="drag-placeholder" *cdkDragPlaceholder></div>
+        <div class="label">
+          {{ item.slug }}
+        </div>
+        <div class="delete-icon" (click)="delete(item, activeItems)">
+          <i class="fa fa-trash"></i>
+        </div>
+        <div class="duplicate-icon" (click)="duplicate(item, activeItems)">
+          <i class="fa fa-clone"></i>
+        </div>
+        <div class="eye-icon">
+          <i class="fa fa-eye"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-list-container">
+    <p>inactive:</p>
+    <div
+      cdkDropList
+      #inactiveList="cdkDropList"
+      [cdkDropListData]="inactiveItems"
+      [cdkDropListConnectedTo]="[activeList, slideDelete]"
+      class="slide-list"
+      (cdkDropListDropped)="dropped($event)"
+    >
+      <div
+        class="slide-list-item inactive"
+        *ngFor="let item of inactiveItems"
+        [class.selected]="selectedItem === item"
+        (click)="itemClicked(item)"
+        cdkDrag
+        cdkDragBoundary=".boundary"
+      >
+        <div class="drag-handle" cdkDragHandle>
+          <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"
+            ></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+        </div>
+
+        <div class="drag-placeholder" *cdkDragPlaceholder></div>
+        <div class="label">
+          {{ item.slug }}
+        </div>
+        <div class="delete-icon" (click)="delete(item, inactiveItems)">
+          <i class="fa fa-trash"></i>
+        </div>
+        <div class="duplicate-icon" (click)="duplicate(item, inactiveItems)">
+          <i class="fa fa-clone"></i>
+        </div>
+        <div class="eye-icon">
+          <i class="fa fa-eye"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

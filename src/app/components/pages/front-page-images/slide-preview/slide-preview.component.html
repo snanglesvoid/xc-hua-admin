@@ -1,0 +1,22 @@
+<div class="full-page">
+  <div class="layer">
+    <app-smart-image
+      [imageClass]="'slideshow-img'"
+      [image]="slide.image"
+      size="0"
+    ></app-smart-image>
+  </div>
+  <div class="layer">
+    <div class="slideshow-title" [ngClass]="classesFor(slide)">
+      <h3 class="subtitle" [style.color]="slide.customColor">
+        {{ slide.subtitle }}
+      </h3>
+      <h2 class="title">
+        <a href="#" [style.color]="slide.customColor">{{ slide.title }}</a>
+      </h2>
+      <h3 class="caption" [style.color]="slide.customColor">
+        {{ slide.caption }}
+      </h3>
+    </div>
+  </div>
+</div>

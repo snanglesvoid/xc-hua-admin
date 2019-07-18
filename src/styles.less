@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'styles/sanitize.less';
+@import 'styles/font.less';
+@import 'styles/variables.less';
+@import 'styles/defaults.less';
+@import 'styles/forms.less';
+@import 'styles/buttons.less';
+@import 'styles/container.less';
+@import 'styles/svg-animations.less';
+@import 'styles/animations.less';
+@import 'styles/image-hover-fx.less';
+
+// body,
+// h1,
+// h2,
+// p,
+// a,
+// div {
+//   cursor: url('/assets/cursors/default.svg'), auto;
+// }
+
+h1,
+h2,
+h3,
+p,
+a {
+  color: @color-fg-light;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

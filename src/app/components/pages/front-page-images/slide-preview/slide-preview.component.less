@@ -1,0 +1,155 @@
+@import '../../../../../styles/variables.less';
+
+.full-page {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+}
+.layer {
+  width: 100%;
+  height: 100%;
+}
+
+:host /deep/ .slideshow-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100% !important;
+  width: 100% !important;
+  max-height: unset !important;
+  max-width: unset !important;
+  object-fit: cover;
+}
+
+.slideshow-title {
+  position: absolute;
+
+  h2,
+  h2 a {
+    transition: all 0.4s ease;
+    background: inherit;
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+
+  h3 {
+    transition: all 0.4s ease;
+    background: inherit;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+.slideshow-title.left {
+  bottom: 12.5%;
+  left: 12.5%;
+  h2,
+  h2 a,
+  h3 {
+    text-align: left;
+  }
+  h2,
+  h3 {
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: backwards;
+  }
+  h2 {
+    animation-name: moveInRight;
+  }
+  h3 {
+    animation-name: moveInLeft;
+  }
+}
+.slideshow-title.right {
+  bottom: 25%;
+  right: 20%;
+  h2,
+  h2 a,
+  h3 {
+    text-align: right;
+  }
+  h2,
+  h3 {
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: backwards;
+  }
+  h2 {
+    animation-name: moveInLeft;
+  }
+  h3 {
+    animation-name: moveInRight;
+  }
+}
+.slideshow-title.top {
+  top: 12.5%;
+  right: 12.5%;
+  h2,
+  h2 a,
+  h3 {
+    text-align: right;
+  }
+  h2,
+  h3 {
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: backwards;
+  }
+  h2 {
+    animation-name: moveInLeft;
+  }
+  h3 {
+    animation-name: moveInRight;
+  }
+}
+.slideshow-title.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  h2,
+  h2 a,
+  h3 {
+    text-align: center;
+  }
+  h2,
+  h3 {
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: backwards;
+  }
+  h2 {
+    animation-name: moveInLeft;
+  }
+}
+.slideshow-title.bright {
+  h2,
+  h2 a,
+  h3 {
+    color: @color-fg-dark-highlight !important;
+  }
+}
+.slideshow-title.dark {
+  h2,
+  h2 a,
+  h3 {
+    color: @color-fg-light !important;
+  }
+}
+.slideshow-title.custom {
+  h2,
+  h2 a,
+  h3 {
+    color: unset;
+  }
+}
+
+h2 {
+  font-size: 40px;
+}
+h3 {
+  font-size: 25px;
+}

@@ -1,0 +1,192 @@
+<h4>{{ slide.slug }}</h4>
+<div class="loading" *ngIf="loading">
+  <h3>Loading...</h3>
+</div>
+<app-image-upload [model]="slide"></app-image-upload>
+<form>
+  <div class="form-group">
+    <label for="title.english">
+      title
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      name="title.english"
+      [(ngModel)]="model.title.english"
+      (change)="change()"
+    />
+  </div>
+  <div class="form-group">
+    <label for="title.chinese">
+      title (ch)
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      name="title.chinese"
+      [(ngModel)]="model.title.chinese"
+      (change)="change()"
+    />
+  </div>
+  <div class="form-group">
+    <label for="title.german">
+      title (de)
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      name="title.german"
+      [(ngModel)]="model.title.german"
+      (change)="change()"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="subtitle.english">
+      subtitle
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      name="subtitle.english"
+      [(ngModel)]="model.subtitle.english"
+      (change)="change()"
+    />
+  </div>
+  <div class="form-group">
+    <label for="subtitle.chinese">
+      subtitle (ch)
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      name="subtitle.chinese"
+      [(ngModel)]="model.subtitle.chinese"
+      (change)="change()"
+    />
+  </div>
+  <div class="form-group">
+    <label for="subtitle.german">
+      subtitle (de)
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      name="subtitle.german"
+      [(ngModel)]="model.subtitle.german"
+      (change)="change()"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="caption.english">
+      caption
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      name="caption.english"
+      [(ngModel)]="model.caption.english"
+      (change)="change()"
+    />
+  </div>
+  <div class="form-group">
+    <label for="caption.chinese">
+      caption (ch)
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      name="caption.chinese"
+      [(ngModel)]="model.caption.chinese"
+      (change)="change()"
+    />
+  </div>
+  <div class="form-group">
+    <label for="caption.german">
+      caption (de)
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      name="caption.german"
+      [(ngModel)]="model.caption.german"
+      (change)="change()"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="linkUrl">link url</label>
+    <input
+      type="url"
+      class="form-control"
+      name="linkUrl"
+      [(ngModel)]="model.linkUrl"
+      (change)="change()"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="location">location</label>
+    <select
+      name="location"
+      id=""
+      class="form-control"
+      [(ngModel)]="model.location"
+      (change)="change()"
+    >
+      <option *ngFor="let l of locations" [value]="l.id">{{
+        l.location
+      }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="textColor">
+      text color
+    </label>
+    <select
+      class="form-control"
+      name="textColor"
+      [(ngModel)]="model.textColor"
+      (change)="change()"
+    >
+      <option value="bright">bright</option>
+      <option value="dark">dark</option>
+      <option value="custom">custom</option>
+    </select>
+  </div>
+  <div class="form-group" *ngIf="model.textColor === 'custom'">
+    <label for="customColor">
+      custom color
+    </label>
+    <input
+      type="color"
+      class="form-control"
+      name="customColor"
+      [(ngModel)]="model.customColor"
+      (change)="colorChange()"
+    />
+  </div>
+  <div class="form-group">
+    <label for="textPlacement">
+      text placement
+    </label>
+    <select
+      class="form-control"
+      name="textPlacement"
+      [(ngModel)]="model.textPlacement"
+      (change)="change()"
+    >
+      <option value="left">left</option>
+      <option value="right">right</option>
+      <option value="center">center</option>
+      <option value="top">top</option>
+    </select>
+  </div>
+</form>
+<div class="actions">
+  <!-- <button class="discard" (click)="discardChanges()">Discard Changes</button> -->
+  <button class="save" [class.disabled]="!hasChanged" (click)="save()">
+    Save
+  </button>
+</div>

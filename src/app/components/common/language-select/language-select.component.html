@@ -1,0 +1,20 @@
+<a [class.active]="view == 'mobile'" (click)="setView('mobile')" class="bigger">
+  <i class="fa fa-mobile"></i>
+</a>
+<a
+  [class.active]="view == 'desktop'"
+  (click)="setView('desktop')"
+  class="smaller"
+>
+  <i class="fa fa-desktop"></i>
+</a>
+&nbsp; | &nbsp;
+<a [class.active]="lang.language == 'english'" (click)="setLanguage('english')"
+  >EN</a
+>
+<a [class.active]="lang.language == 'chinese'" (click)="setLanguage('chinese')"
+  >中文</a
+>
+<a [class.active]="lang.language == 'german'" (click)="setLanguage('german')"
+  >DE</a
+>

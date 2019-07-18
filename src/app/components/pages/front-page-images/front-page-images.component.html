@@ -1,0 +1,29 @@
+<app-sidebar>
+  <h3>FRONT PAGE IMAGES</h3>
+  <hr />
+  <app-slide-list
+    [slides]="slides"
+    (slideSelected)="selectedSlide = $event"
+  ></app-slide-list>
+  <hr />
+
+  <app-slide-detail
+    [slide]="selectedSlide"
+    *ngIf="selectedSlide"
+  ></app-slide-detail>
+
+  <hr />
+
+  <!-- <div class="actions">
+    <button class="discard" (click)="discardChanges()">Discard Changes</button>
+    <button class="save" (click)="save()">Save Changes</button>
+  </div> -->
+</app-sidebar>
+
+<app-content-pane [class.mobile]="view == 'mobile'">
+  <app-slide-preview
+    [slide]="selectedSlide"
+    *ngIf="selectedSlide"
+  ></app-slide-preview>
+</app-content-pane>
+<app-language-select (viewChange)="view = $event"></app-language-select>

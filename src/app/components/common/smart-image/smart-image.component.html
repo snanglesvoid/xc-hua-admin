@@ -1,0 +1,7 @@
+<img
+  *ngIf="image.exists"
+  [src]="imageUrl"
+  [class]="imageClass"
+  (load)="onImagesLoaded()"
+  (click)="click()"
+/>
