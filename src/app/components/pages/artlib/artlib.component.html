@@ -1,0 +1,15 @@
+<app-sidebar>
+  <h3>Artlib</h3>
+  <hr />
+
+  <app-article-detail
+    *ngIf="selectedArticle"
+    [data]="selectedArticle"
+  ></app-article-detail>
+</app-sidebar>
+
+<app-content-pane>
+  <app-shelf-preview
+    (articleSelected)="this.selectedArticle = $event"
+  ></app-shelf-preview>
+</app-content-pane>

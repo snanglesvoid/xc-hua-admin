@@ -1,0 +1,238 @@
+<h4>{{ data.slug }}</h4>
+
+<div class="loading" *ngIf="loading">
+  <h3>loading...</h3>
+</div>
+
+<form>
+  <div class="form-group">
+    <label for="title.english">
+      title
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      name="title.english"
+      [(ngModel)]="model.title.english"
+      (change)="change()"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="title.chinese">
+      title chinese
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      name="title.chinese"
+      [(ngModel)]="model.title.chinese"
+      (change)="change()"
+    />
+  </div>
+
+  <p>position:</p>
+  <div class="form-group">
+    <label for="position-x" class="small">x</label>
+    <input
+      class="form-control"
+      type="number"
+      name="position-x"
+      [(ngModel)]="data.x"
+      min="-20"
+      max="20"
+      step="0.01"
+    />
+    <mat-slider
+      class="form-control"
+      step="0.01"
+      [value]="data.x"
+      (input)="data.x = $event.value"
+      (change)="change()"
+      min="-20"
+      max="20"
+    ></mat-slider>
+  </div>
+  <div class="form-group">
+    <label for="position-y" class="small">y</label>
+    <input
+      class="form-control"
+      type="number"
+      name="position-y"
+      [(ngModel)]="data.y"
+      min="-5"
+      max="5"
+      step="0.01"
+    />
+    <mat-slider
+      class="form-control"
+      step="0.01"
+      [value]="data.y"
+      (input)="data.y = $event.value"
+      (change)="change()"
+      min="-5"
+      max="5"
+    ></mat-slider>
+  </div>
+  <div class="form-group">
+    <label for="position-z" class="small">z</label>
+    <input
+      class="form-control"
+      type="number"
+      name="position-z"
+      [(ngModel)]="data.z"
+      min="-3"
+      max="3"
+      step="0.01"
+    />
+    <mat-slider
+      class="form-control"
+      step="0.01"
+      [value]="data.z"
+      (input)="data.z = $event.value"
+      (change)="change()"
+      min="-3"
+      max="3"
+    ></mat-slider>
+  </div>
+
+  <p>size:</p>
+  <div class="form-group">
+    <label for="width" class="small">width</label>
+    <input
+      class="form-control"
+      type="number"
+      name="width"
+      [(ngModel)]="data.width"
+      min="1"
+      max="20"
+      step="0.01"
+    />
+    <mat-slider
+      class="form-control"
+      step="0.01"
+      [value]="data.width"
+      (input)="data.width = $event.value"
+      (change)="change()"
+      min="1"
+      max="20"
+    ></mat-slider>
+  </div>
+  <div class="form-group">
+    <label for="height" class="small">height </label>
+    <input
+      class="form-control"
+      type="number"
+      name="height"
+      [(ngModel)]="data.height"
+      min="1"
+      max="20"
+      step="0.01"
+    />
+    <mat-slider
+      class="form-control"
+      step="0.01"
+      [value]="data.height"
+      (input)="data.height = $event.value"
+      (change)="change()"
+      min="1"
+      max="20"
+    ></mat-slider>
+  </div>
+  <div class="form-group">
+    <label for="depth" class="small">depth</label>
+    <input
+      class="form-control"
+      type="number"
+      name="depth"
+      [(ngModel)]="data.depth"
+      min="0.1"
+      max="6"
+      step="0.01"
+    />
+    <mat-slider
+      class="form-control"
+      step="0.01"
+      [value]="data.depth"
+      (input)="data.depth = $event.value"
+      (change)="change()"
+      min="0.1"
+      max="6"
+    ></mat-slider>
+  </div>
+
+  <p>rotation:</p>
+  <div class="form-group">
+    <label for="rotation-x" class="small">x</label>
+    <input
+      class="form-control"
+      type="number"
+      name="rotation-x"
+      (input)="data.rotationX = $event.target.value"
+      [value]="data.rotation.x"
+      min="-6.28"
+      max="6.28"
+      step="0.01"
+    />
+    <mat-slider
+      class="form-control"
+      step="0.01"
+      [value]="data.rotation.x"
+      (input)="data.rotationX = $event.value"
+      (change)="change()"
+      min="-6.28"
+      max="6.28"
+    ></mat-slider>
+  </div>
+  <div class="form-group">
+    <label for="rotation-y" class="small">y</label>
+    <input
+      class="form-control"
+      type="number"
+      name="rotation-y"
+      (input)="data.rotationY = $event.target.value"
+      [value]="data.rotation.y"
+      min="-6.28"
+      max="6.28"
+      step="0.01"
+    />
+    <mat-slider
+      class="form-control"
+      step="0.01"
+      [value]="data.rotation.y"
+      (input)="data.rotationY = $event.value"
+      (change)="change()"
+      min="-6.28"
+      max="6.28"
+    ></mat-slider>
+  </div>
+  <div class="form-group">
+    <label for="rotation-z" class="small">z</label>
+    <input
+      class="form-control"
+      type="number"
+      name="rotation-z"
+      (input)="data.rotationZ = $event.target.value"
+      [value]="data.rotation.z"
+      min="-6.28"
+      max="6.28"
+      step="0.01"
+    />
+    <mat-slider
+      class="form-control"
+      step="0.01"
+      [value]="data.rotation.z"
+      (input)="data.rotationZ = $event.value"
+      (change)="change()"
+      min="-6.28"
+      max="6.28"
+    ></mat-slider>
+  </div>
+</form>
+
+<div class="actions">
+  <!-- <button class="discard" (click)="discardChanges()">Discard Changes</button> -->
+  <button class="save" [class.disabled]="!hasChanged" (click)="save()">
+    Save
+  </button>
+</div>

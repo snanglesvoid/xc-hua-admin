@@ -27,6 +27,12 @@ import {
 
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
+import {
+  ShelfRowModel,
+  ShelfRow,
+  LibArticle,
+  LibArticleModel,
+} from '../models/LibArticle'
 
 const apiPrefix = environment.apiPrefix
 
@@ -70,6 +76,11 @@ export class ApiService {
       '/artwork-series',
       ArtworkSeries
     )
+    this.libArticles = new Controller<ShelfRowModel, ShelfRow>(
+      this,
+      '/lib-articles',
+      ShelfRow
+    )
   }
 
   public frontPageImages: Controller<FrontPageImageModel, FrontPageImage>
@@ -81,6 +92,7 @@ export class ApiService {
   public fairs: Controller<FairModel, Fair>
   public artworks: Controller<ArtworkModel, Artwork>
   public artworkSeries: Controller<ArtworkSeriesModel, ArtworkSeries>
+  public libArticles: Controller<ShelfRowModel, ShelfRow>
 
   public get apiPrefix() {
     return environment.apiPrefix
@@ -147,7 +159,6 @@ export class ApiService {
         )
     })
   }
-
   public updateFrontPageImageOrder(): Promise<any> {
     let body = this.frontPageImages.data.map(x => {
       return { id: x.id, listPriority: x.listPriority, active: x.active }
@@ -170,6 +181,25 @@ export class ApiService {
             this.frontPageImages.dataChanged.emit('change')
             console.log('success', data)
             resolve(data)
+          },
+          error => reject(error)
+        )
+    })
+  }
+  public saveLibArticle(item: LibArticle): Promise<any> {
+    let headers = new HttpHeaders({ 'content-type': 'application/json' })
+    let body = Object.assign({}, item.getModel())
+    return new Promise((resolve, reject) => {
+      this.http
+        .post('https://galerie-xchua.com/admin/api/libArticle', body, {
+          headers: headers,
+        })
+        .subscribe(
+          (data: LibArticleModel) => {
+            let newItem = new LibArticle(this, data)
+            newItem.translate(this.lang.language)
+            this.libArticles.dataChanged.emit('change')
+            resolve(newItem)
           },
           error => reject(error)
         )

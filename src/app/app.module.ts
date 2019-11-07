@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 
+import { MatSliderModule } from '@angular/material'
+
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { FrontPageImagesComponent } from './components/pages/front-page-images/front-page-images.component'
@@ -21,16 +23,22 @@ import { LanguageSelectComponent } from './components/common/language-select/lan
 import { ImageUploadComponent } from './components/common/image-upload/image-upload.component'
 import { FileSizePipe } from './pipes/file-size.pipe'
 import { ProgressBarComponent } from './components/common/progress-bar/progress-bar.component'
+import { ArtlibComponent } from './components/pages/artlib/artlib.component'
+import { ShelfPreviewComponent } from './components/pages/artlib/shelf-preview/shelf-preview.component'
+import { ArticleDetailComponent } from './components/pages/artlib/article-detail/article-detail.component'
 
 const appRoutes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: '/front-page-images',
+    component: HomeComponent,
   },
   {
     path: 'front-page-images',
     component: FrontPageImagesComponent,
+  },
+  {
+    path: 'artlib',
+    component: ArtlibComponent,
   },
 ]
 
@@ -49,6 +57,9 @@ const appRoutes: Routes = [
     ImageUploadComponent,
     FileSizePipe,
     ProgressBarComponent,
+    ArtlibComponent,
+    ShelfPreviewComponent,
+    ArticleDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +70,7 @@ const appRoutes: Routes = [
     DragDropModule,
     DeviceDetectorModule.forRoot(),
     FormsModule,
+    MatSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
